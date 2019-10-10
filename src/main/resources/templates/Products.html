@@ -1,0 +1,269 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<title>EasyCart</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Bootstrap Core CSS -->
+<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<!-- Graph CSS -->
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<!-- jQuery -->
+<link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
+<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<!-- lined-icons -->
+<link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
+
+
+
+
+</head> 
+<body>
+<script type="text/javascript">
+
+	$(document).ready(function () {
+		$('#demo-pie-1').pieChart({
+			barColor: '#3bb2d0',
+			trackColor: '#eee',
+			lineCap: 'round',
+			lineWidth: 8,
+			onStep: function (from, to, percent) {
+				$(this.element).find('.pie-value').text(Math.round(percent) + '%');
+			}
+		});
+
+		$('#demo-pie-2').pieChart({
+			barColor: '#fbb03b',
+			trackColor: '#eee',
+			lineCap: 'butt',
+			lineWidth: 8,
+			onStep: function (from, to, percent) {
+				$(this.element).find('.pie-value').text(Math.round(percent) + '%');
+			}
+		});
+
+		$('#demo-pie-3').pieChart({
+			barColor: '#ed6498',
+			trackColor: '#eee',
+			lineCap: 'square',
+			lineWidth: 8,
+			onStep: function (from, to, percent) {
+				$(this.element).find('.pie-value').text(Math.round(percent) + '%');
+			}
+		});
+
+
+	});
+
+</script>
+</head>
+<body>
+<div class="page-container">
+	<!--/content-inner-->
+	<div class="left-content">
+		<div class="inner-content">
+
+				<div class="header">
+					<div class="head-t">
+						<div class="logo">
+							<a href="index"></a>
+						</div>
+					</div>
+				</div>
+
+
+
+<div class="grid1_of_4" th:each= "Product : ${products}">
+	<div class="content_box">
+		<img src="images/b3.jpg" class="img-responsive" alt="">
+
+		<h1><td th:text="${Product.product_name}"></td></h1>
+		<h6><td th:text="${Product.description}"></td></h6>
+
+		<h6>In Stock :<td th:text="${Product.in_stock_products}"></td></h6>
+		<div class="grid_1 simpleCart_shelfItem">
+
+			<div class="item_add"><span class="item_price"><h6>ONLY  :<td th:text="${Product.price}"></td> :Rupees</h6></span></div>
+
+			<form class="item_add" th:action = "@{/update( id=${Product.id},image=${Product.icon_id} ,price=${Product.price}, name=${Product.product_name}, description=${Product.description},, total=${Product.total_products}, stock=${Product.in_stock_products}  )}" method = "POST">
+				<div class="item_price"><button type="submit" >Update</button></div>
+			</form>
+<!--			<div class="item_add"><span class="item_price"><a href="Add">Update</a></span></div>-->
+<!--			<div class="item_add"><span class="item_price"><a href="#">Delete</a></span></div>-->
+
+		</div>
+	</div>
+	<br> <br>
+</div>
+		</div>
+				<!--/sidebar-menu-->
+				<div class="sidebar-menu">
+					<header class="logo1">
+
+					</header>
+					<div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
+					<div class="menu">
+						<ul id="menu" >
+							<li><a href="index"> <span>Home</span></a></li>
+
+							<li><a href="#"> <span>Product</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+								<ul>
+									<li><a href="Products">All products </a></li>
+									<li><a href="Add">Add</a></li>
+
+								</ul>
+							<li><a href="index"> <span>Users</span></a></li>
+							<li><a href="index"> <span>Orders</span></a></li>
+						</ul>
+					</div>
+				</div>
+
+
+<!--			<div class="grid1_of_4">-->
+<!--				<div class="content_box"><a href="details.html">-->
+<!--			   	   	 <img src="images/b4.jpg" class="img-responsive" alt="">-->
+<!--				   	  </a>-->
+<!--				    <h4><a href="details.html"> Duis autem</a></h4>-->
+<!--				     <p>It is a long established fact that</p>-->
+<!--					 <div class="grid_1 simpleCart_shelfItem">-->
+<!--				    -->
+<!--					 <div class="item_add"><span class="item_price"><h6>ONLY $74.00</h6></span></div>-->
+<!--					<div class="item_add"><span class="item_price"><a href="#">add to cart</a></span></div>-->
+<!--					 </div>-->
+<!--			   	</div>-->
+<!--			</div>-->
+<!--			<div class="clearfix"></div>-->
+<!--		</div>-->
+<!--		<div class="grids_of_4">-->
+<!--		  <div class="grid1_of_4">-->
+<!--				<div class="content_box"><a href="details.html">-->
+<!--			   	   	 <img src="images/b5.jpg" class="img-responsive" alt="">-->
+<!--				   	  </a>-->
+<!--				    <h4><a href="details.html"> Duis autem</a></h4>-->
+<!--				     <p>It is a long established fact that</p>-->
+<!--					 <div class="grid_1 simpleCart_shelfItem">-->
+<!--				    -->
+<!--					 <div class="item_add"><span class="item_price"><h6>ONLY $80.00</h6></span></div>-->
+<!--					<div class="item_add"><span class="item_price"><a href="#">add to cart</a></span></div>-->
+<!--					 </div>-->
+<!--			   	</div>-->
+<!--			</div>-->
+<!--			<div class="grid1_of_4">-->
+<!--				<div class="content_box"><a href="details.html">-->
+<!--			   	   	 <img src="images/b6.jpg" class="img-responsive" alt="">-->
+<!--				   	  </a>-->
+<!--				    <h4><a href="details.html"> Duis autem</a></h4>-->
+<!--				     <p>It is a long established fact that</p>-->
+<!--					 <div class="grid_1 simpleCart_shelfItem">-->
+<!--				    -->
+<!--					 <div class="item_add"><span class="item_price"><h6>ONLY $65.00</h6></span></div>-->
+<!--					<div class="item_add"><span class="item_price"><a href="#">add to cart</a></span></div>-->
+<!--					 </div>-->
+<!--			   	</div>-->
+<!--			</div>-->
+<!--			<div class="grid1_of_4">-->
+<!--				<div class="content_box"><a href="details.html">-->
+<!--			   	   	 <img src="images/b7.jpg" class="img-responsive" alt="">-->
+<!--				   	  </a>-->
+<!--				    <h4><a href="details.html"> Duis autem</a></h4>-->
+<!--				     <p>It is a long established fact that</p>-->
+<!--					 <div class="grid_1 simpleCart_shelfItem">-->
+<!--				    -->
+<!--					 <div class="item_add"><span class="item_price"><h6>ONLY $90.00</h6></span></div>-->
+<!--					<div class="item_add"><span class="item_price"><a href="#">add to cart</a></span></div>-->
+<!--					 </div>-->
+<!--			   	</div>-->
+<!--&lt;!&ndash;			</div>&ndash;&gt;-->
+<!--			<div class="grid1_of_4">-->
+<!--				<div class="content_box"><a href="details.html">-->
+<!--			   	   	 <img src="images/b8.jpg" class="img-responsive" alt="">-->
+<!--				   	  </a>-->
+<!--				    <h4><a href="details.html"> Duis autem</a></h4>-->
+<!--				     <p>It is a long established fact that</p>-->
+<!--					 <div class="grid_1 simpleCart_shelfItem">-->
+<!--				    -->
+<!--					 <div class="item_add"><span class="item_price"><h6>ONLY $75.00</h6></span></div>-->
+<!--					<div class="item_add"><span class="item_price"><a href="#">add to cart</a></span></div>-->
+<!--					 </div>-->
+<!--			   	</div>-->
+<!--			</div>-->
+<!--			<div class="clearfix"></div>-->
+<!--		</div>-->
+<!--		<div class="grids_of_4">-->
+<!--		  <div class="grid1_of_4">-->
+<!--				<div class="content_box"><a href="details.html">-->
+<!--			   	   	 <img src="images/b9.jpg" class="img-responsive" alt="">-->
+<!--				   	  </a>-->
+<!--				    <h4><a href="details.html"> Duis autem</a></h4>-->
+<!--				     <p>It is a long established fact that</p>-->
+<!--					 <div class="grid_1 simpleCart_shelfItem">-->
+<!--				    -->
+<!--					 <div class="item_add"><span class="item_price"><h6>ONLY $99.00</h6></span></div>-->
+<!--					<div class="item_add"><span class="item_price"><a href="#">add to cart</a></span></div>-->
+<!--					 </div>-->
+<!--			   	</div>-->
+<!--			</div>-->
+<!--			<div class="grid1_of_4">-->
+<!--				<div class="content_box"><a href="details.html">-->
+<!--			   	   	 <img src="images/b2.jpg" class="img-responsive" alt="">-->
+<!--				   	  </a>-->
+<!--				    <h4><a href="details.html"> Duis autem</a></h4>-->
+<!--				     <p>It is a long established fact that</p>-->
+<!--					 <div class="grid_1 simpleCart_shelfItem">-->
+<!--				    -->
+<!--					 <div class="item_add"><span class="item_price"><h6>ONLY $76.00</h6></span></div>-->
+<!--					<div class="item_add"><span class="item_price"><a href="#">add to cart</a></span></div>-->
+<!--					 </div>-->
+<!--			   	</div>-->
+<!--			</div>-->
+<!--			<div class="grid1_of_4">-->
+<!--				<div class="content_box"><a href="details.html">-->
+<!--			   	   	 <img src="images/b3.jpg" class="img-responsive" alt="">-->
+<!--				   	  </a>-->
+<!--				    <h4><a href="details.html"> Duis autem</a></h4>-->
+<!--				     <p>It is a long established fact that</p>-->
+<!--					 <div class="grid_1 simpleCart_shelfItem">-->
+<!--				    -->
+<!--					 <div class="item_add"><span class="item_price"><h6>ONLY $58.00</h6></span></div>-->
+<!--					<div class="item_add"><span class="item_price"><a href="#">add to cart</a></span></div>-->
+<!--					 </div>-->
+<!--			   	</div>-->
+<!--			</div>-->
+<!--			<div class="grid1_of_4">-->
+<!--				<div class="content_box"><a href="details.html">-->
+<!--			   	   	 <img src="images/b4.jpg" class="img-responsive" alt="">-->
+<!--				   	  </a>-->
+<!--				    <h4><a href="details.html"> Duis autem</a></h4>-->
+<!--				     <p>It is a long established fact that</p>-->
+<!--					 <div class="grid_1 simpleCart_shelfItem">-->
+<!--				    -->
+<!--					 <div class="item_add"><span class="item_price"><h6>ONLY $112.00</h6></span></div>-->
+<!--					<div class="item_add"><span class="item_price"><a href="#">add to cart</a></span></div>-->
+<!--					 </div>-->
+<!--			   	</div>-->
+<!--			</div>-->
+<!--			<div class="clearfix"></div>-->
+<!--		</div>-->
+<!--		-->
+<!--		-->
+		
+		
+		<!-- end grids_of_4 -->
+		
+		
+
+
+
+</body>
+</html>
