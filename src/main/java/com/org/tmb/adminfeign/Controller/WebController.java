@@ -1,5 +1,6 @@
 package com.org.tmb.adminfeign.Controller;
 
+import com.org.tmb.adminfeign.model.Order;
 import com.org.tmb.adminfeign.model.Product;
 import com.org.tmb.adminfeign.feign.FeignInterface;
 import org.springframework.stereotype.Controller;
@@ -75,7 +76,7 @@ return "redirect:/Products";
     public String update() {
         return "update";
     }
-}
+
 
 
 //    @GetMapping("/update")
@@ -90,3 +91,19 @@ return "redirect:/Products";
 //        return "update";
 //
 //    }
+    // user Controller diplaying the user product
+     @GetMapping ("/User")
+     public String user(){
+    return "User";
+}
+//
+    @GetMapping("/Order")
+    public String forms(Order order){
+        return "Order";
+    }
+
+//    @GetMapping("/image")
+//    public String images(){
+//        return "uploadImage";
+//    }
+}
