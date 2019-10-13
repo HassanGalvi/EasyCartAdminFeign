@@ -4,7 +4,7 @@ public class Product {
     private int id;
     private String product_name;
     private String description;
-    private int icon_id;
+    private String icon_id;
     private int in_stock_products;
     private int type_id;
     private int parent_id;
@@ -13,12 +13,21 @@ public class Product {
     private int total_products;
     private int price;
 
-    public Product(int id, String image, Integer price, String name, String description, int total, int stock) {
-
+    public Product(int id, String product_name, String description, String icon_id, int in_stock_products, int type_id, int parent_id, int promotion_id, int comment_id, int total_products, int price) {
+        this.id = id;
+        this.product_name = product_name;
+        this.description = description;
+        this.icon_id = icon_id;
+        this.in_stock_products = in_stock_products;
+        this.type_id = type_id;
+        this.parent_id = parent_id;
+        this.promotion_id = promotion_id;
+        this.comment_id = comment_id;
+        this.total_products = total_products;
+        this.price = price;
     }
-    public Product(){
 
-    }
+public Product(){}
 
     public int getId() {
         return id;
@@ -44,11 +53,11 @@ public class Product {
         this.description = description;
     }
 
-    public int getIcon_id() {
+    public String getIcon_id() {
         return icon_id;
     }
 
-    public void setIcon_id(int icon_id) {
+    public void setIcon_id(String icon_id) {
         this.icon_id = icon_id;
     }
 

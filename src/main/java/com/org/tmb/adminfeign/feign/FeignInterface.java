@@ -22,7 +22,7 @@ public interface FeignInterface {
     @RequestMapping(value = "/insertProduct" , method = RequestMethod.POST)
     int insertProduct(Product product);
 
-    @RequestMapping(value = "/update" , method = RequestMethod.PUT)
+    @RequestMapping(value = "/updateProduct" , method = RequestMethod.PUT)
     int updateProduct(Product product);
 
 }
