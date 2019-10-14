@@ -19,7 +19,7 @@ public class WebController {
     @Resource
     private FeignInterface feignInterface;
 
-
+//index
     @GetMapping("/index")
     public String index() {
 
